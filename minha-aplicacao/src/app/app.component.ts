@@ -6,6 +6,10 @@
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  pudim = "Teste de property binding!";
+  favoriteColor = "Azul Centaurea"
+  titulo = "Seja Bem-Vindo por Property Binding!"
   
   constructor(){        // Função Construtora, é a primeira função a ser executada quando uma classe é iniciada, instanciada. 
                         // Ou seja logo que essa classe surgir irá passar por esse construtor.
