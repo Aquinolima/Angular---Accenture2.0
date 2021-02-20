@@ -1,0 +1,17 @@
+<h1 style="text-align: center;">exercicios-diretivas works!</h1>
+<hr>
+
+<!-- MODELO Diretiva ngIf -->
+
+<div *ngIf="deveExibir; else elseBlock">
+    <h2 style="text-align: center;">Olá, este é um ngIf</h2>
+</div>
+
+<ng-template #elseBlock>
+    <h2 style="text-align: center;">Olá, este é o texto Alternativo do Else no ngIf</h2>
+</ng-template>
+
+<button (click)="trocarValor()" class="ifButton"> Exibir/Esconder</button>
+
+
+
