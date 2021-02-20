@@ -20,6 +20,8 @@ export class ExercicioDataBindingComponent implements OnInit {
 
   valorDoInput = '';
 
+  valorContador = 10;
+
   constructor() { 
     setTimeout(() => {
       this.isDisabled = false;
@@ -53,6 +55,7 @@ onClickBotaoEmissor(event : any){
 }
 
 onValorAtualizadoNoContador(novoValor : any){
+  this.valorContador = novoValor;
   console.log('onValorAtualizadoNoContador', novoValor);
 }
 
