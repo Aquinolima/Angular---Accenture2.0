@@ -1,3 +1,11 @@
+<!-- EXERCICIO CONTADOR -->
+
+<app-contador>
+    [valor]='10'
+     (valorMudou)="onValorAtualizadoNoContador($event)"
+ </app-contador>
+
+
 <!-- EXEMPLOS DE EVENT BINDING -->
 
 <button (click)="onClickBotaoEmissor($event)">

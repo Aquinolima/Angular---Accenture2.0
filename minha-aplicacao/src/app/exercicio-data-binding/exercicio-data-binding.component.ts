@@ -52,4 +52,8 @@ onClickBotaoEmissor(event : any){
   this.clicado.emit(event);
 }
 
+onValorAtualizadoNoContador(novoValor : any){
+  console.log('onValorAtualizadoNoContador', novoValor);
+}
+
 }

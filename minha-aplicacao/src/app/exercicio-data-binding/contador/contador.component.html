@@ -1,0 +1,24 @@
+<!-- EXERCICIO CONTADOR -->
+<!--
+    Criar Componente Contador em que possa incrementar e decrementar um número.
+    Este Component deve receber, via PropertyBind, o valor inicial do contador.
+    Quando o número for modificado (incrmentado ou decrementado), o component deve também comunicar a mudança para o componente pai. 
+-->
+<div class="countAtual">
+    <h2 class="countAtual__title">
+        Valor Atual no Contador: {{ valor }}
+    </h2>
+</div>
+    <hr>
+
+<div class="countButton">
+    <button class="countButton__button" (click)="incrementar()"> Incrementar </button>
+    
+    <button class="countButton__button" (click)="decrementar()"> Decrementar </button>
+</div>    
+
+
+
+
+
+
