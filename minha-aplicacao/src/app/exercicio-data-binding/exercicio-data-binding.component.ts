@@ -22,4 +22,9 @@ export class ExercicioDataBindingComponent implements OnInit {
   getImageUrl(){
     return this.imgUrl;
   }
+
+ fazerAlgo() : void {
+   console.log('Cliquei!');
+ }
+
 }
