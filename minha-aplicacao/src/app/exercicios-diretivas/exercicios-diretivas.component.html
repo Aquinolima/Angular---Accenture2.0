@@ -13,5 +13,22 @@
 
 <button (click)="trocarValor()" class="ifButton"> Exibir/Esconder</button>
 
+<hr>
+<!-- MODELO Diretiva ngFor -->
+<!-- Semelhante ao ForOf -->
 
+<ul>
+    <li *ngFor="let fruta of listaFrutas"> {{ fruta }}</li>
+</ul>
 
+<br>
+    <div *ngFor="let carro of carrosLista" class="container">
+        <div class="card">
+            <img src="{{carro.img}}" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>{{carro.modelo}} - {{carro.ano}} - {{carro.cor}}</b></h4>
+              <p>Placa: {{carro.placa}}</p>
+              <p>Alienado: {{carro.alienado}}</p>
+            </div>
+        </div>    
+    </div>
