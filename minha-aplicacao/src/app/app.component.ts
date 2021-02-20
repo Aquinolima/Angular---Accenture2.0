@@ -1,0 +1,14 @@
+ import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  
+  constructor(){        // Função Construtora, é a primeira função a ser executada quando uma classe é iniciada, instanciada. 
+                        // Ou seja logo que essa classe surgir irá passar por esse construtor.
+  console.log('Passei por Aqui');
+  }
+}
