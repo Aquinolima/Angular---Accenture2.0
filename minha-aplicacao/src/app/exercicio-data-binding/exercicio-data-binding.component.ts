@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-exercicio-data-binding',
@@ -9,12 +9,23 @@ export class ExercicioDataBindingComponent implements OnInit {
 
   @Input() 'palavra': string;
   @Input() 'color': string;
+
+  @Output() 'clicado' = new EventEmitter();
  
 
   imgUrl = "https://i.pinimg.com/originals/8f/6c/14/8f6c142a7949e1c8cb61f89d37a90695.jpg";
   InitialValue = 'Valor Inicial';
+  isDisabled = true;
+  accessibilityText = 'Um texto acessível';
 
-  constructor() {   }
+  valorDoInput = '';
+
+  constructor() { 
+    setTimeout(() => {
+      this.isDisabled = false;
+      console.log('isDisabled: ', this.isDisabled);
+    }, 3000);
+    }
 
   ngOnInit(): void {
   }
@@ -23,8 +34,22 @@ export class ExercicioDataBindingComponent implements OnInit {
     return this.imgUrl;
   }
 
- fazerAlgo() : void {
-   console.log('Cliquei!');
+ onClick(event : any) : void {
+   console.log('Cliquei!', event);
  }
+
+ digitouAlgo(event : any){
+   this.valorDoInput = event.target.value;
+   console.log(event);
+ }
+
+mousePass(){
+  console.log('Alguém Passou o Mouse!');
+}
+
+onClickBotaoEmissor(event : any){
+  console.log('Devo emitir informações para o componente pai!', event);
+  this.clicado.emit(event);
+}
 
 }

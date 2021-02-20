@@ -1,36 +1,43 @@
-<h1>Exemplos Event Binding</h1>
+<!-- EXEMPLOS DE EVENT BINDING -->
 
-<button (click)="fazerAlgo()">Clique Aqui!</button>
+<button (click)="onClickBotaoEmissor($event)">
+    Emitir informações de clique!
+</button><br><br>
 
+
+<button 
+    (click)="onClick($event)"
+    (mouseenter)="mousePass()">
+    Clique Aqui!
+</button><br>
+
+<input type="text"
+    [value]="valorDoInput"
+    (keyup)="digitouAlgo($event)"><br>
+
+Valor do Input: {{ valorDoInput }}
 
 <hr>
 
-<h1>Exemplos Property Binding</h1>
+<!-- EXEMPLOS DE PROPERTY BINDING -->
 
-<br>
+<p>Palavra: {{palavra}}</p>
+<p>Cor: {{color}}</p>
 
-<h2>Palavra: {{palavra}}</h2>
+<input type="text" [value]="InitialValue" ><br>
 
-<br>
+<button [disabled]="isDisabled">Clique em mim!</button><br>
 
-<h2>Cor: {{color}}</h2>
+<p [attr.aria-label]="isDisabled ? 'Botão desabilitado' : accessibilityText">
+    Um texto qualquer...
+</p><br>
 
-    <br>
-
-<input type="text" [value]="InitialValue" >
-
-<br>
+<hr>
 
 <p>exercicio-data-binding works!</p>
 
-<br>
-
 <img src="{{imgUrl}}" alt="dogCoder">
 
-<br>
-
 <p>img com property binding</p>
-
-<br>
 
 <img [src]="getImageUrl()" alt="dogCoder">

@@ -15,4 +15,8 @@ export class AppComponent {
                         // Ou seja logo que essa classe surgir irá passar por esse construtor.
   console.log('Passei por Aqui');
   }
+
+  eventoRecebido(event : any){
+    console.log('AppComponent: EVENTO RECEBIDO', event);
+  }
 }
