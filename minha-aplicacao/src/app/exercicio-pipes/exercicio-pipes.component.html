@@ -1,0 +1,11 @@
+<!-- MODELO Pipes -->
+<div class="container">
+    <h1>Modelo Pipes !</h1>
+    <hr>
+
+    <h2> Título: {{ filme.titulo | uppercase }}</h2>
+    <h2> Avalição: {{ filme.estrelas | number: '1.1-1' }}</h2>
+    <h2> Preço do Aluguel: {{ filme.precoAluguel | currency: 'BRL'}}</h2>
+    <h2> Data Lançamento: {{ filme.dataLancamento | date: 'mediumDate'}}</h2>
+ 
+</div>
