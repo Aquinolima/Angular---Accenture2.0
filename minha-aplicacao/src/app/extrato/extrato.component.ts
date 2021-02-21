@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Transacao } from './extrato.interfaces';
 import { ExtratoService } from './extrato.service';
 
+import { finalize, take } from 'rxjs/operators';
+
 @Component({
   selector: 'app-extrato',
   templateUrl: './extrato.component.html',
@@ -29,13 +31,23 @@ export class ExtratoComponent implements OnInit {
     this.erroNoCarregamento = false;
 
     this.extratoService.getTransacoes()
-    .subscribe(response => {
-      this.estaCarregando = false;
-      this.transacoes =  response;
-    }, error => {
-      this.estaCarregando = false;
-      this.erroNoCarregamento = true;
-    });
+    .pipe(
+      take(1),
+     finalize(() =>  this.estaCarregando = false)
+    )
+    .subscribe(response => this.onSucesso(response),
+     error => this.onError(error),
+     );
   }
 
+  // tslint:disable-next-line: typedef
+  onSucesso(response: Transacao[]){
+    this.transacoes =  response;
+  }
+
+  // tslint:disable-next-line: typedef
+  onError(error: any){
+    this.erroNoCarregamento = true;
+    console.error(error);
+    }
 }
