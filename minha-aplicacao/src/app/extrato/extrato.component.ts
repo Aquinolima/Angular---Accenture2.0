@@ -14,8 +14,12 @@ export class ExtratoComponent implements OnInit {
     private extratoService: ExtratoService
     ) { }
 
+  // tslint:disable-next-line: typedef
   ngOnInit() {
-    this.transacoes = this.extratoService.getTransacoes();
+    this.transacoes = this.extratoService.getTransacoes()
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 
 }

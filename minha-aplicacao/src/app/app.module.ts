@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { ExtratoComponent } from './extrato/extrato.component';
 import { Error404Component } from './error404/error404.component';
 
+import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
@@ -37,7 +38,8 @@ registerLocaleData(localePt, 'pt');
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [{
     provide: LOCALE_ID,
