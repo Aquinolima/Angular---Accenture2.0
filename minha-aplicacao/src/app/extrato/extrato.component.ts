@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Transacao } from './extrato.interfaces';
 import { ExtratoService } from './extrato.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ExtratoService } from './extrato.service';
 })
 export class ExtratoComponent implements OnInit {
 
-  transacoes: any;
+  transacoes!: Array<Transacao>;
 
   constructor(
     private extratoService: ExtratoService
@@ -16,9 +17,9 @@ export class ExtratoComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    this.transacoes = this.extratoService.getTransacoes()
+    this.extratoService.getTransacoes()
     .subscribe(response => {
-      console.log(response);
+      this.transacoes =  response;
     });
   }
 
