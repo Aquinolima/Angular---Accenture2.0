@@ -7,5 +7,61 @@
     <h2> Avalição: {{ filme.estrelas | number: '1.1-1' }}</h2>
     <h2> Preço do Aluguel: {{ filme.precoAluguel | currency: 'BRL'}}</h2>
     <h2> Data Lançamento: {{ filme.dataLancamento | date: 'mediumDate'}}</h2>
+
+    <hr>
+
+    <h1>Desafio Pipes !</h1>
+
+    <!-- 
+        Exibir as informações do Array de Compras de forma formatada na view.
+
+        compras = [{
+            produto: 'lâmpadas',
+            valor: 299.29,
+            quantidade: 2,
+            peso: 0,
+            data: new Date(2020, 1, 1, 15, 20),
+        }, {
+            produto: 'farinha',
+            valor: 450.29,
+            quantidade: 2,
+            peso: 29.33333,
+            data: new Date(2020, 1, 10, 19, 30),
+        }];
+
+
+        Utilizando Pipes, exiba as informações do Array de Compras da seguinte forma:
+
+        - Produto: LÂMPADAS
+          Valor: R$ 299,29
+          Quantidade: 2
+          Peso: 0,0 Kg
+          Data: sábado, 1 de fevereiro de 2020, às 15:20
+
+          ___________________________________________________________________
+          
+          - Produto: FARINHA
+          Valor: R$ 450,29
+          Quantidade: 2
+          Peso: 29,33 Kg
+          Data: segunda-feira, 10 de fevereiro de 2020, às 19:30
+          ___________________________________________________________________
+
+        Bônus: Se o peso for zero, exiba "sem peso" no lugar.
+     -->
+
+    <hr>
+     <ul>
+         <li *ngFor="let compra of compras" >
+            <p> Produto: <b> {{ compra.produto | uppercase}} </b> </p>
+            <p> Valor: {{ compra.valor | currency: 'BRL' }} </p>
+            <p> Quantidade: {{ compra.quantidade }} </p>
+            <!-- <p> Peso: {{ compra.peso | number: '2.2-2' }} Kg  </p> -->
+            <p> Peso: {{ compra.peso > 0 ? (compra.peso | number: '2.2-2') + ' Kg' : ' sem peso ' }}</p>
+            <p> Data: {{ compra.data | date: 'EEEE, d, \'de\' MMMM \'de\' y, \'às\' \'HH:mm'}} </p>
+            <hr>
+         </li>
+     </ul>
+
  
 </div>
