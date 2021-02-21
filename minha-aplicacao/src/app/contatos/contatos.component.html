@@ -3,6 +3,7 @@
     <p> Aqui estão seus contatos.</p>
     
     <hr>
+    <div class="listCenter">
 
     <div class="text-center mt-2">
         <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" *ngIf="estaCarregando">
@@ -20,26 +21,17 @@
         <div class="table-responsive">
                 <table class="table table-hover">
                 <thead class="thead-dark">
-                <tr>
-                    <th scope="col" > ID </th>
+                <tr>              
                     <th scope="col" > Nome </th>
-                    <th scope="col" > Cpf </th>
-                    <th scope="col" > Banco </th>
-                    <th scope="col" > Agência </th>
-                    <th scope="col" > Conta </th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let contato of contatos">
-                    <td scope="row" > {{ contato.id }} </td>
                     <td> {{ contato.nome}} </td>
-                    <td> {{ contato.cpf }} </td>
-                    <td> {{ contato.banco}} </td>
-                    <td> {{ contato.ag }} </td>
-                    <td> {{ contato.cc }} </td>
                 </tr>
             </tbody>
             </table>
         </div>
     </div>
+</div>
 </main>
