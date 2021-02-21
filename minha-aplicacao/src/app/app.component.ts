@@ -9,17 +9,8 @@ export class AppComponent {
 
   pudim = "Teste de property binding!";
   favoriteColor = "Azul Centaurea"
-  titulo = "Exercício Contador - Property Binding!"
-  
-  
-  constructor(){        // Função Construtora, é a primeira função a ser executada quando uma classe é iniciada, instanciada. 
-                        // Ou seja logo que essa classe surgir irá passar por esse construtor.
-  console.log('Passei por Aqui');
-  }
-
-  eventoRecebido(event : any){
-    console.log('AppComponent: EVENTO RECEBIDO', event);
-  }
-
+  titulo = "Angular---Accenture2.0"
  
+  
+  constructor(){}
 }
