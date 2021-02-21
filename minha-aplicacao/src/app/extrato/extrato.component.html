@@ -3,8 +3,20 @@
     <p> Corpo da Aplicação.</p>
     
     <hr>
+    <div class="text-center">
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" *ngIf="estaCarregando">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <div *ngIf="erroNoCarregamento">
+        <h2> Deu Erro ! :(</h2>
+    </div>
+
+
+
     <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover"*ngIf="!estaCarregando && !erroNoCarregamento">
             <thead class="thead-dark">
             <tr>
                 <th scope="col" > ID </th>
