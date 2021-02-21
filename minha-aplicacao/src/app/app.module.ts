@@ -21,6 +21,7 @@ import { Error404Component } from './error404/error404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContatosComponent } from './contatos/contatos.component';
 import { DetalhesContatoComponent } from './contatos/detalhes-contato/detalhes-contato.component';
+import { FormsModule } from '@angular/forms';
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
@@ -43,6 +44,7 @@ registerLocaleData(localePt, 'pt');
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
   ],
   providers: [{
