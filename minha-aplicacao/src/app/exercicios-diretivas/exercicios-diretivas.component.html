@@ -1,4 +1,39 @@
-<h1 style="text-align: center;">exercicios-diretivas works!</h1>
+    <hr>
+    <!-- Desafio de *ngFor e *ngIf
+        
+    Dado um Array de memes agrupados, repita cada uma das imagens no template, agrupando por categoria. 
+    Não exiba os memes das posições pares. No lugar disto, exiba a palavra PAR.
+
+    DICAS:
+    1 - Crie um arquivo de constantes contendo o Array a ser importado no componente.
+    2 - Importe a constante para seu componente e atribua a uma variável.
+    3 - Repita as categorias no Template.
+    4 - Repita as imagens dentro das categorias.
+    5 - Faça a validação para não exibir itens pares.
+
+    Prefixo das imagens:
+    https://raw.githubusercontent.com/vitorfgsantos/angular-memes-diretivas/master/images 
+       
+    -->
+    <h1 style="text-align: center;">Desafio *ngFor e *ngIf!</h1>
+    <div class="container">
+        
+        <ul>
+            <li *ngFor="let memesAgrupados of MEMES_AGRUPADOS_POR_CATEGORIA" >
+                <h2>{{ memesAgrupados.categoria }}</h2>
+                <div *ngFor="let meme of memesAgrupados.memes; let par = even" >
+                    <img [src]="linkMemes + meme.imagemURL" *ngIf="par; else blocoPar">
+                    <ng-template #blocoPar>
+                        <h2> PAR </h2>
+                    </ng-template>
+                </div>
+            </li>
+        </ul>
+        
+    </div>
+    <br>    <hr>    
+
+<h1 style="text-align: center;">Exercicios de Diretivas works!</h1>
 <hr>
 
 <!-- MODELO Diretiva ngIf -->
@@ -32,3 +67,6 @@
             </div>
         </div>    
     </div>
+    
+
+

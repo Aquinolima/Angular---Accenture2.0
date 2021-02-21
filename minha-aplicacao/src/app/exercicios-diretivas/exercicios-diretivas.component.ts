@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MEMES_AGRUPADOS_POR_CATEGORIA } from './deafio-diretivas.constants';
 
 @Component({
   selector: 'app-exercicios-diretivas',
@@ -54,6 +55,12 @@ export class ExerciciosDiretivasComponent implements OnInit {
 
   
   deveExibir = true;
+
+
+  MEMES_AGRUPADOS_POR_CATEGORIA = MEMES_AGRUPADOS_POR_CATEGORIA;
+  linkMemes = 'https://raw.githubusercontent.com/vitorfgsantos/angular-memes-diretivas/master/images';
+
+
 
   trocarValor(){
     this.deveExibir = !this.deveExibir
