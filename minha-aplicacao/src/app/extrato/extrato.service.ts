@@ -15,8 +15,13 @@ export class ExtratoService {
     private http: HttpClient,
     ) { }
   // tslint:disable-next-line: typedef
-  getTransacoes() {
+  getTransacoes(page: number) {
     // return throwError(new Error('Erro genérico'));                                 /*  Força erro para teste! */
-     return  this.http.get<Transacao[]>(this.API_URL + '/transacoes');
+     return  this.http.get<Transacao[]>(this.API_URL + '/transacoes', {
+        params: {
+          _page: String(page),
+        }
+     }
+     );
   }
 }
