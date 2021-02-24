@@ -5,6 +5,7 @@ import { Usuario } from '../shared/interfaces/usuario.interface';
 import { AuthService } from '../shared/services/auth/auth.service';
 import { LoginResponse } from './login.interfaces';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,12 +26,13 @@ export class LoginService {
           sobrenome: 'Aquino',
           email: 'aquinolima.thiago@gmail.com',
         },
-        token: 'aD12h3123523543fgdfg',
+        token: "jsdjksajdklaskjkj asksjdkaj3",
       })
       .pipe(
         delay(2000),
-        tap((response: { usuario: any; }) => {
+        tap((response: { usuario: any, token: string; }) => {
           this.authService.setUsuario(response.usuario);
+          this.authService.setToken(response.token);
          
         
         })

@@ -7,7 +7,7 @@ import { Usuario } from '../../interfaces/usuario.interface';
 export class AuthService {
 
   usuario!: Usuario;
-  token!: String;
+  token!: string;
   constructor() { }
 
   setUsuario(usuario: Usuario){
@@ -46,9 +46,14 @@ export class AuthService {
         return this.token;
       }
       return null;
-
   }
 
+  estaLogado(): boolean{
 
-
+    if (this.getUsuario() && this.getToken()) {
+      return true;
+    }
+      return false;
+    //return this.getUsuario() && this.getToken() ? true : false;
+  }
 }
