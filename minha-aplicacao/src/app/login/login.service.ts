@@ -11,8 +11,8 @@ import { LoginResponse } from './login.interfaces';
 })
 export class LoginService {
 
-  usuario!: Usuario;
-  token!: String;
+  usuario: Usuario;
+  token: String;
 
   constructor(
     private authService: AuthService,
@@ -26,16 +26,14 @@ export class LoginService {
           sobrenome: 'Aquino',
           email: 'aquinolima.thiago@gmail.com',
         },
-        token: "jsdjksajdklaskjkj asksjdkaj3",
+        token: "70k3N 73572 4NgU74R",
       })
       .pipe(
         delay(2000),
         tap((response: { usuario: any, token: string; }) => {
           this.authService.setUsuario(response.usuario);
           this.authService.setToken(response.token);
-         
-        
-        })
+                })
       );
     }
 

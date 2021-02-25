@@ -12,10 +12,10 @@ import { ContatosService } from './contatos.service';
 })
 export class ContatosComponent implements OnInit {
 
-  contatos!: Contato[];
+  contatos: Contato[];
 
-  estaCarregando!: boolean;
-  erroNoCarregamento!: boolean;
+  estaCarregando: boolean;
+  erroNoCarregamento: boolean;
  
   constructor(
     private contatosService: ContatosService,

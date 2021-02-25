@@ -17,11 +17,11 @@ export class LoginComponent {
   @ViewChild('passwordInput')
   passwordInput!: ElementRef;
 
-  email!: string;
-  password!: string;
+  email: string;
+  password: string;
 
-  estaCarregando!: boolean;
-  erroNoLogin!: boolean;
+  estaCarregando: boolean;
+  erroNoLogin: boolean;
 
   constructor(
     private loginService: LoginService,

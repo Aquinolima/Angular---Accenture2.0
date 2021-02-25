@@ -11,12 +11,12 @@ import { finalize, take } from 'rxjs/operators';
 })
 export class ExtratoComponent implements OnInit {
 
-  transacoes!: Array<Transacao>;
+  transacoes: Array<Transacao>;
 
   pagina = 1;
 
-  estaCarregando!: boolean;
-  erroNoCarregamento!: boolean;
+  estaCarregando: boolean;
+  erroNoCarregamento: boolean;
 
   constructor(
     private extratoService: ExtratoService

@@ -6,8 +6,8 @@ import { Usuario } from '../../interfaces/usuario.interface';
 })
 export class AuthService {
 
-  usuario!: Usuario;
-  token!: string;
+  usuario: Usuario;
+  token: string;
   constructor() { }
 
   setUsuario(usuario: Usuario){

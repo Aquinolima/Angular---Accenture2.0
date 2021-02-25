@@ -13,10 +13,10 @@ import { ContatosService } from '../contatos.service';
 export class DetalhesContatoComponent implements OnInit {
   [x: string]: any;
 
-  contato!: Contato;
+  contato: Contato;
 
-  estaCarregando!: boolean;
-  erroNoCarregamento!: boolean;
+  estaCarregando: boolean;
+  erroNoCarregamento: boolean;
   
 
   constructor(
