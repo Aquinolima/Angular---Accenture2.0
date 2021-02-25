@@ -7,7 +7,6 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { LoginComponent } from './login/login.component';
-import { ExtratoComponent } from './extrato/extrato.component';
 import { Error404Component } from './error404/error404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +18,6 @@ registerLocaleData(localePt, 'pt');
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    ExtratoComponent,
     Error404Component,
     ],
   imports: [
