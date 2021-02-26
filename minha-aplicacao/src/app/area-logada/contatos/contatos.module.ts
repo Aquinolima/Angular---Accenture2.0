@@ -5,14 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ContatosRoutingModule } from './contatos-routing.module';
 import { DetalharContatoComponent } from './detalhar-contato/detalhar-contato.component';
 import { ListarContatosComponent } from './listar-contatos/listar-contatos.component';
-import { NovoContatoComponent } from './novo-contato/novo-contato.component';
+import { EditarContatoComponent } from './editar-contato/editar-contato.component';
 
 
 @NgModule({
   declarations: [
     ListarContatosComponent,
     DetalharContatoComponent,
-    NovoContatoComponent,
+    EditarContatoComponent,
   ],
   imports: [
     CommonModule,

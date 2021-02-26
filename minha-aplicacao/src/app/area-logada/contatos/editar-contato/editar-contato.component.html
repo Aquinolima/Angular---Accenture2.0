@@ -1,8 +1,18 @@
 <main class="main">
-    <h2> Inserir Novo Contato </h2>
+    <h2> Criar/Editar Contato </h2>
     <hr>
     <div class="container pt-5">
 
+      <div class="text-center mt-2">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" *ngIf="estaCarregando">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="erroNoCarregamento">
+      <h2> Deu Erro ! :(</h2>
+  </div>
+
+  <div *ngIf="!estaCarregando && !erroNoCarregamento">
         <form [formGroup]="contatoForm">
             <div class="form-group">
               <label for="nome">Nome</label>
@@ -39,14 +49,21 @@
             <div class="form-group">
               <label for="cc">Conta</label>
               <input
-                type="number" class="form-control" id="cc"
+                type="text" class="form-control" id="cc"
                 placeholder="Conta" formControlName="cc"
                 [class.is-invalid]="exibeErro('cc')">
             </div>
 
-            <button class="btn btn-info" (click)="onSubmit()">Salvar</button>
+            <button class="btn btn-info" (click)="onSubmit()">
+              {{ estaEditando() ? 'Salvar Contato' : 'Criar Contato'}}
+            </button>
+
+            <button type="button" class="btn btn-dark float-right" (click)="voltar()">
+              Voltar
+          </button>
 
         </form>
+  </div>
     </div>
 
   </main>
