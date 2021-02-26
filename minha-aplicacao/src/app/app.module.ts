@@ -17,14 +17,12 @@ registerLocaleData(localePt, 'pt');
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     NaoEncontradoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     SharedModule,
   ],
   providers: [{

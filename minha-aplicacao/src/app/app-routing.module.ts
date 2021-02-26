@@ -13,7 +13,7 @@ const routes: Routes = [{
   canActivate: [EstaLogadoGuard],
 }, {
   path: 'login',
-  component: LoginComponent,
+  loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
   canActivate: [NaoEstaLogadoGuard],
 }, {
   path: '**',

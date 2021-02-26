@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AreaLogadaComponent implements OnInit {
 
+  title = "Angular---Accenture2.0"
+
   constructor() { }
 
   ngOnInit(): void {
