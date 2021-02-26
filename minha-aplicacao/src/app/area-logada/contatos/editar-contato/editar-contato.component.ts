@@ -44,11 +44,11 @@ export class EditarContatoComponent implements OnInit {
     this.contatoForm = this.formBuilder.group({
       nome: ['', Validators.required],
       cpf: ['', Validators.required],
-// dadosBancarios: this.formBuilder.group({
+dadosBancarios: this.formBuilder.group({
       ag: ['', [Validators.required, Validators.minLength(4)]],
       cc: ['', [Validators.required, Validators.minLength(5)]],
       banco: ['', Validators.required],
-   // }),
+ }),
     });
   }
 

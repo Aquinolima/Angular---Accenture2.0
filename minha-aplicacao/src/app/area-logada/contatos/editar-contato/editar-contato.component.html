@@ -30,7 +30,7 @@
                 [class.is-invalid]="exibeErro('cpf')">
             </div>
         
-          <!-- <div formGroupName="dadosBancarios"> -->
+          <div formGroupName="dadosBancarios">
             <div class="form-group">
               <label for="banco">Banco</label>
               <input
@@ -54,7 +54,7 @@
                 placeholder="Conta" formControlName="cc"
                 [class.is-invalid]="exibeErro('dadosBancarios.cc')">
             </div>  
-          <!-- </div> -->
+          </div>
 
             <button class="btn btn-info" (click)="onSubmit()">
               {{ estaEditando() ? 'Salvar Contato' : 'Criar Contato'}}
