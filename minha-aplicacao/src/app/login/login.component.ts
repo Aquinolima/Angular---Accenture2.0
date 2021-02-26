@@ -12,10 +12,8 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent {
 
-  @ViewChild('emailInput')
-  emailInput!: ElementRef;
-  @ViewChild('passwordInput')
-  passwordInput!: ElementRef;
+  @ViewChild('emailInput') emailInput: ElementRef;
+  @ViewChild('passwordInput') passwordInput: ElementRef;
 
   email: string;
   password: string;
@@ -28,7 +26,7 @@ export class LoginComponent {
     private router: Router,
   ) { }
 
-  onSubmit(form: any) {
+  onSubmit(form) {
     this.erroNoLogin = false;
 
     if (!form.valid) {
@@ -55,9 +53,9 @@ export class LoginComponent {
     this.estaCarregando = true;
 
     this.loginService.logar(this.email, this.password)
-    .pipe(
-      finalize(() => this.estaCarregando = false)
-    )
+      .pipe(
+        finalize(() => this.estaCarregando = false)
+      )
       .subscribe(
         response => this.onSuccessLogin(),
         error => this.onErrorLogin(),
@@ -71,7 +69,6 @@ export class LoginComponent {
   onErrorLogin() {
     this.erroNoLogin = true;
   }
-
 
   exibeErro(nomeControle: string, form: NgForm) {
     if (!form.controls[nomeControle]) {

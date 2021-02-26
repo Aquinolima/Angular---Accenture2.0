@@ -5,13 +5,13 @@ import { DetalharContatoComponent } from './detalhar-contato/detalhar-contato.co
 import { ListarContatosComponent } from './listar-contatos/listar-contatos.component';
 
 
-const routes: Routes = [
-  {
-    path: '', component: ListarContatosComponent,
-  }, {
-    path: ':id', component: DetalharContatoComponent,
-  },
-];
+const routes: Routes = [{
+  path: '',
+  component: ListarContatosComponent,
+}, {
+  path: ':id',
+  component: DetalharContatoComponent,
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

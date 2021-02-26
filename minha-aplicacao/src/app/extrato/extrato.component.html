@@ -1,51 +1,51 @@
 <main class="main">
-    <h2>Extrato</h2>
-    <p> Aqui está seu extrato.</p>
-    
-    <hr>
+  <h2>Extrato</h2>
+  <p> Aqui está seu extrato.</p>
+  
+  <hr>
 
-    <div class="text-center mt-2">
-    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" *ngIf="estaCarregando">
-        <span class="sr-only">Loading...</span>
-      </div>
+  <div class="text-center mt-2">
+  <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" *ngIf="estaCarregando">
+      <span class="sr-only">Loading...</span>
     </div>
+  </div>
 
-    <div *ngIf="erroNoCarregamento">
-        <h2> Deu Erro ! :(</h2>
-    </div>
+  <div *ngIf="erroNoCarregamento">
+      <h2> Deu Erro ! :(</h2>
+  </div>
 
-    <div *ngIf="!estaCarregando && !erroNoCarregamento">
+  <div *ngIf="!estaCarregando && !erroNoCarregamento">
 
-    <div class="text-center">
-        <button type="button" class="btn btn-dark m-1" (click)="paginaAnterior()" [disabled]="pagina === 1" > Página Anterior </button>
-         Página: {{ pagina }}
-        <button type="button" class="btn btn-dark m-1" (click)="proximaPagina()" > Próxima Página </button>
-    </div>
-    
-    <div class="table-responsive">
-            <table class="table table-hover">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col" > ID </th>
-                <th scope="col" > Data </th>
-                <th scope="col" > Descricao </th>
-                <th scope="col" > Valor </th>
-                <th scope="col" > Categoria </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let transacao of transacoes">
-                <td scope="row" > {{ transacao.id }} </td>
-                <td> {{ transacao.data | date }} </td>
-                <td> {{ transacao.descricao }} </td>
-                <td> {{ transacao.valor | currency:'BRL' }} </td>
-                <td> {{ transacao.categoria }} </td>
-            </tr>
-        </tbody>
-        </table>
-    </div>
+  <div class="text-center">
+      <button type="button" class="btn btn-dark m-1" (click)="paginaAnterior()" [disabled]="pagina === 1" > Página Anterior </button>
+       Página: {{ pagina }}
+      <button type="button" class="btn btn-dark m-1" (click)="proximaPagina()" > Próxima Página </button>
+  </div>
+  
+  <div class="table-responsive">
+          <table class="table table-hover">
+          <thead class="thead-dark">
+          <tr>
+              <th scope="col" > ID </th>
+              <th scope="col" > Data </th>
+              <th scope="col" > Descricao </th>
+              <th scope="col" > Valor </th>
+              <th scope="col" > Categoria </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let transacao of transacoes">
+              <td scope="row" > {{ transacao.id }} </td>
+              <td> {{ transacao.data | date }} </td>
+              <td> {{ transacao.descricao }} </td>
+              <td> {{ transacao.valor | currency:'BRL' }} </td>
+              <td> {{ transacao.categoria }} </td>
+          </tr>
+      </tbody>
+      </table>
+  </div>
 </div>
-    
+  
 
 
 </main>

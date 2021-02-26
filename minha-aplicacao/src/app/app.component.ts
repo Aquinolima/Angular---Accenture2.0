@@ -1,4 +1,4 @@
- import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,15 @@
 })
 export class AppComponent {
 
-  pudim = "Teste de property binding!";
-  favoriteColor = "Azul Centaurea"
-  titulo = "Angular---Accenture2.0"
- 
-  
-  constructor(){}
+  title = "Angular---Accenture2.0"
+
+  palavra = 'CARRO';
+  favoriteColor = 'green';
+
+  constructor() { }
+
+  eventoRecebido($event) {
+    console.log('AppComponent: EVENTO RECEBIDO!', $event);
+  }
+
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { Usuario } from '../shared/interfaces/usuario.interface';
 import { AuthService } from '../shared/services/auth/auth.service';
 
 @Component({
@@ -8,15 +10,15 @@ import { AuthService } from '../shared/services/auth/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  usuario: any;
-
+  usuario: Usuario;
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
   ) { }
 
-  ngOnInit(){
-   this.usuario = this.authService.getUsuario();
+  ngOnInit() {
+    this.usuario = this.authService.getUsuario();
   }
 
 }
+

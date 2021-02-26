@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+
 import { Transacao } from './extrato.interfaces';
 
 @Injectable({
@@ -13,15 +13,17 @@ export class ExtratoService {
 
   constructor(
     private http: HttpClient,
-    ) { }
-  // tslint:disable-next-line: typedef
+  ) { }
+
   getTransacoes(page: number) {
-    // return throwError(new Error('Erro genérico'));                                 /*  Força erro para teste! */
-     return  this.http.get<Transacao[]>(this.API_URL + '/transacoes', {
-        params: {
-          _page: String(page),
-        }
-     }
-     );
+    // Simular erro
+    // const error = throwError('Erro genérico');
+    // return timer(3000).pipe(mergeMap(() => error));
+
+    return this.http.get<Transacao[]>(this.API_URL + '/transacoes', {
+      params: {
+        _page: String(page),
+      }
+    });
   }
 }

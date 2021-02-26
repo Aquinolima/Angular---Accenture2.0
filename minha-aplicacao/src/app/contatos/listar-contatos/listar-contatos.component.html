@@ -1,43 +1,43 @@
 <main class="main">
-    <h2>Contatos</h2>
-    <p> Aqui estão seus contatos.</p>
-    
-    <hr>
-    <div class="listCenter">
+  <h2>Contatos</h2>
+  <p> Aqui estão seus contatos.</p>
+  
+  <hr>
+  <div class="listCenter">
 
-    <div class="text-center mt-2">
-        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" *ngIf="estaCarregando">
-            <span class="sr-only">Loading...</span>
-          </div>
+  <div class="text-center mt-2">
+      <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" *ngIf="estaCarregando">
+          <span class="sr-only">Loading...</span>
         </div>
-    
-        <div *ngIf="erroNoCarregamento">
-            <h2> Deu Erro ! :(</h2>
-        </div>
-    
-        <div *ngIf="!estaCarregando && !erroNoCarregamento">
-    
-              
-        <div class="table-responsive">
-                <table class="table table-hover">
-                <thead class="thead-dark">
-                <tr>              
-                    <th scope="col" > Nome </th>
-                    <th scope="col" > Ações </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let contato of contatos">
-                    <td> {{ contato.nome}} </td>
-                    <td>
-                        <button type="button" class="btn btn-dark btn-sm m-1" (click)="goToDetails(contato.id)">
-                            Ver Detalhes
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
-    </div>
+      </div>
+  
+      <div *ngIf="erroNoCarregamento">
+          <h2> Deu Erro ! :(</h2>
+      </div>
+  
+      <div *ngIf="!estaCarregando && !erroNoCarregamento">
+  
+            
+      <div class="table-responsive">
+              <table class="table table-hover">
+              <thead class="thead-dark">
+              <tr>              
+                  <th scope="col" > Nome </th>
+                  <th scope="col" > Ações </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let contato of contatos">
+                  <td> {{ contato.nome}} </td>
+                  <td>
+                      <button type="button" class="btn btn-dark btn-sm m-1" (click)="irParaDetalhes(contato.id)">
+                          Ver Detalhes
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+          </table>
+      </div>
+  </div>
 </div>
 </main>

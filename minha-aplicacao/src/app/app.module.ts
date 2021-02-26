@@ -1,30 +1,31 @@
+import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import localePt from '@angular/common/locales/pt';
 import { LOCALE_ID, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt';
 import { LoginComponent } from './login/login.component';
-import { Error404Component } from './error404/error404.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
+import { SharedModule } from './shared/shared.module';
+
+
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     LoginComponent,
-    Error404Component,
-    ],
+    NaoEncontradoComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
+    FormsModule,
+    SharedModule,
   ],
   providers: [{
     provide: LOCALE_ID,

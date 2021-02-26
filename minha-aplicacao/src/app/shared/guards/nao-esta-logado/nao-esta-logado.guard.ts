@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
+
 import { AuthService } from '../../services/auth/auth.service';
 
 @Injectable({
@@ -11,11 +11,11 @@ export class NaoEstaLogadoGuard implements CanActivate {
   constructor(
     private authService: AuthService,
     private router: Router,
-  ){}
+  ) { }
 
-  canActivate(): boolean{
+  canActivate(): boolean {
     const estaLogado = this.authService.estaLogado();
-    
+
     if (!estaLogado) {
       return true;
     }
@@ -23,5 +23,5 @@ export class NaoEstaLogadoGuard implements CanActivate {
     this.router.navigate(['home']);
     return false;
   }
-  
+
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { finalize } from 'rxjs/internal/operators/finalize';
-import { take } from 'rxjs/internal/operators/take';
+import { finalize, take } from 'rxjs/operators';
+
 import { Contato } from '../contatos.interfaces';
 import { ContatosService } from '../contatos.service';
 
@@ -11,22 +11,19 @@ import { ContatosService } from '../contatos.service';
   styleUrls: ['./detalhar-contato.component.scss']
 })
 export class DetalharContatoComponent implements OnInit {
-  [x: string]: any;
 
   contato: Contato;
-
   estaCarregando: boolean;
   erroNoCarregamento: boolean;
-  
 
   constructor(
     private route: ActivatedRoute,
-    private contatosService: ContatosService,
     private router: Router,
+    private contatosService: ContatosService
   ) { }
 
-  ngOnInit(){
-        this.carregarContato();
+  ngOnInit() {
+    this.carregarContato();
   }
 
   carregarContato() {
@@ -34,28 +31,29 @@ export class DetalharContatoComponent implements OnInit {
     this.erroNoCarregamento = false;
 
     const idContato = this.route.snapshot.paramMap.get('id');
-    this.contatosService.getContato(Number(idContato))
+    this.contatosService.getContato(idContato)
       .pipe(
-      take(1),
-      finalize(() => this.estaCarregando = false)
+        take(1),
+        finalize(() => this.estaCarregando = false)
       )
-    .subscribe(
-      response => this.onSuccess(response),
-      // error => this.onError(error),
-    )};
+      .subscribe(
+        response => this.onSuccess(response),
+        error => this.onError(error),
+      );
+  }
 
-    onError(error: any) {
-      this.erroNoCarregamento = true;
-      console.error(error);
-    }
+  onSuccess(response: Contato) {
+    this.contato = response;
+    console.log(this.contato);
+  }
 
-    onSuccess(response: Contato){
-      this.contato = response;
-    }
+  onError(error: any) {
+    this.erroNoCarregamento = true;
+    console.error(error);
+  }
 
-    voltar(){
-      this.router.navigate(['contatos'])
-
-    }
+  voltar() {
+    this.router.navigate([`contatos`]);
+  }
 
 }

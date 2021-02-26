@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError, timer } from 'rxjs';
 import { delay, mergeMap, tap } from 'rxjs/operators';
-import { Usuario } from '../shared/interfaces/usuario.interface';
+
 import { AuthService } from '../shared/services/auth/auth.service';
 import { LoginResponse } from './login.interfaces';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
-  usuario: Usuario;
-  token: String;
 
   constructor(
     private authService: AuthService,
@@ -28,13 +24,13 @@ export class LoginService {
         },
         token: "70k3N 73572 4NgU74R",
       })
-      .pipe(
-        delay(2000),
-        tap((response: { usuario: any, token: string; }) => {
-          this.authService.setUsuario(response.usuario);
-          this.authService.setToken(response.token);
-                })
-      );
+        .pipe(
+          delay(2000),
+          tap(response => {
+            this.authService.setUsuario(response.usuario);
+            this.authService.setToken(response.token);
+          })
+        );
     }
 
     return timer(3000).pipe(

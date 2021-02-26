@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ExtratoComponent } from './extrato.component';
+import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [{
-  path: 'extrato', component: ExtratoComponent,
-}];
+
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
