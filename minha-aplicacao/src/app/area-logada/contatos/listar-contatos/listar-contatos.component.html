@@ -30,8 +30,11 @@
               <tr *ngFor="let contato of contatos">
                   <td> {{ contato.nome}} </td>
                   <td>
-                      <button type="button" class="btn btn-dark btn-sm m-1" (click)="irParaDetalhes(contato.id)">
+                      <button type="button" class="btn btn-info btn-sm m-1" (click)="irParaDetalhes(contato.id)">
                           Ver Detalhes
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm m-1" (click)="deletarContato(contato.id)">
+                          Deletar
                       </button>
                   </td>
               </tr>
