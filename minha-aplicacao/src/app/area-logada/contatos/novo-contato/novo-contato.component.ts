@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-novo-contato',
@@ -21,8 +21,11 @@ export class NovoContatoComponent implements OnInit {
     }); */
 
     this.contatoForm = this.formBuilder.group({
-      nome: [''],
-      banco: ['']
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      banco: ['', Validators.required],
+      ag: [' ', [Validators.required, Validators.minLength(4)]],
+      conta: [' ', [Validators.required, Validators.minLength(4)]]
     });
   }
 
