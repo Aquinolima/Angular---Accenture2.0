@@ -2,16 +2,18 @@
     <h2> Inserir Novo Contato </h2>
     <hr>
     <div class="container pt-5">
-        <form>
+        <form [formGroup]="contatoForm" >
             <div class="form-group">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Nome">
+                <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
             </div>
             
             <div class="form-group">
-                <label for="cpf">CPF</label>
-                <input type="text" class="form-control" id="cpf" placeholder="CPF">
+                <label for="cpf">Banco</label>
+                <input type="text" class="form-control" id="banco" placeholder="Banco" formControlName="banco">
             </div>
+            <button type="submit" class="btn btn-info" (click)="salvarContato()">Salvar</button>
+
         </form>
     </div>
 
