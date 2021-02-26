@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+import { ContatosService } from '../contatos.service';
 
 @Component({
   selector: 'app-novo-contato',
@@ -11,26 +15,62 @@ export class NovoContatoComponent implements OnInit {
   contatoForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private contatosService: ContatosService,
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-  /*   this.contatoForm = new FormGroup({
-      nome: new FormControl(),
-      banco: new FormControl(),
-    }); */
-
     this.contatoForm = this.formBuilder.group({
       nome: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      cpf: ['', Validators.required],
+      ag: ['', [Validators.required, Validators.minLength(4)]],
+      cc: ['', [Validators.required, Validators.minLength(5)]],
       banco: ['', Validators.required],
-      ag: [' ', [Validators.required, Validators.minLength(4)]],
-      conta: [' ', [Validators.required, Validators.minLength(4)]]
     });
   }
 
-  salvarContato(){
-    console.log(this.contatoForm);
+    exibeErro(nomeControle: string){
+    if(!this.contatoForm.get(nomeControle)){
+      return false;
+    }
+
+    return this.contatoForm.get(nomeControle).invalid && this.contatoForm.get(nomeControle).touched;
+  }
+
+  validateAllFormsFields(){
+    Object.keys(this.contatoForm.controls).forEach(field => {
+      const control = this.contatoForm.get(field);
+      control.markAsTouched();
+    })
+  }
+
+  onSubmit() {
+    if (this.contatoForm.invalid) {
+      this.validateAllFormsFields();
+      return;
+    }
+
+    this.salvarContato();
+  }
+
+  salvarContato() {
+    this.contatosService.createContato(this.contatoForm.value)
+      .subscribe(
+        response => this.onSuccessSalvarContato(),
+        error => this.onErrorSalvarContato(),
+      );
+  }
+
+  onSuccessSalvarContato() {
+    console.log(this.contatoForm.value)
+    this.toastr.success('Sucesso!', 'Contato criado com sucesso.');
+    this.router.navigate(['contatos']);
+  }
+
+  onErrorSalvarContato() {
+    this.toastr.error('Erro!', 'Alguma coisa deu errado.');
   }
 
 }
