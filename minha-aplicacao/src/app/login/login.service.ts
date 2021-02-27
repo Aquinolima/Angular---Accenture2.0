@@ -15,12 +15,12 @@ export class LoginService {
   ) { }
 
   logar(email: string, senha: string): Observable<LoginResponse> {
-    if (email === 'aquinolima.thiago@gmail.com' && senha === '123') {
+    if (email === 'email@email.com' && senha === '123') {
       return of({
         usuario: {
           nome: 'Thiago',
           sobrenome: 'Aquino',
-          email: 'aquinolima.thiago@gmail.com',
+          email: 'email@email.com',
         },
         token: "70k3N 73572 4NgU74R",
       })
